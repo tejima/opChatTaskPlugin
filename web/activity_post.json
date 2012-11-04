@@ -1,0 +1,24 @@
+{
+    "status": "success",
+    "data": {
+        "id": "112",
+        "member": {
+            "id": "2",
+            "profile_image": "http:\/\/p.pne.jp\/it\/?w=36&h=36",
+            "screen_name": "tejima",
+            "name": "tejima",
+            "profile_url": "http:\/\/example.com\/member\/2",
+            "friend": false,
+            "blocking": false,
+            "self": true,
+            "friends_count": 0,
+            "self_introduction": "\u624b\u5d8b\u3067\u3059\u3002"
+        },
+        "body": "\u30c6\u30b9\u30c8\u6295\u7a3f",
+        "body_html": "\u30c6\u30b9\u30c8\u6295\u7a3f",
+        "uri": null,
+        "source": "API",
+        "source_uri": null,
+        "created_at": "Sat, 14 Apr 2012 09:39:37 +0900"
+    }
+}

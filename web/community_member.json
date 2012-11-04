@@ -1,0 +1,53 @@
+{
+    "status": "success",
+    "data": [
+    {
+        "blocking": false,
+        "friend": true,
+        "friends_count": 5,
+        "id": "6",
+        "name": "ゆーだい",
+        "profile_image": "http://p.pne.jp/it/?w=36&h=36",
+        "profile_url": "http://38.openpne.jp/member/6",
+        "screen_name": "yudai1999",
+        "self": false,
+        "self_introduction": ""
+    },
+    {
+        "blocking": false,
+        "friend": false,
+        "friends_count": 1,
+        "id": "43",
+        "name": "test",
+        "profile_image": "http://p.pne.jp/it/?w=36&h=36",
+        "profile_url": "http://38.openpne.jp/member/43",
+        "screen_name": "sns@example.com",
+        "self": false,
+        "self_introduction": ""
+    },
+    {
+        "blocking": false,
+        "friend": false,
+        "friends_count": 1,
+        "id": "50",
+        "name": "test",
+        "profile_image": "http://p.pne.jp/it/?w=36&h=36",
+        "profile_url": "http://38.openpne.jp/member/43",
+        "screen_name": "sns@example.com",
+        "self": false,
+        "self_introduction": ""
+    },
+    {
+        "blocking": false,
+        "friend": false,
+        "friends_count": 1,
+        "id": "58",
+        "name": "test",
+        "profile_image": "http://p.pne.jp/it/?w=36&h=36",
+        "profile_url": "http://38.openpne.jp/member/43",
+        "screen_name": "sns@example.com",
+        "self": false,
+        "self_introduction": ""
+    }
+    ]
+}

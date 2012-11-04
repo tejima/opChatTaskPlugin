@@ -1,0 +1,9 @@
+{
+    "status": "success",
+    "data": {
+        "id": "112",
+        "key": "chattask_memo",
+        "value": "memo value memo value",
+        "created_at": "Sat, 14 Apr 2012 09:39:37 +0900"
+    }
+}

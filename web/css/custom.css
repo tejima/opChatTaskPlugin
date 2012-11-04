@@ -1,0 +1,72 @@
+html , body{
+  height: 100%;
+}
+
+body {
+  padding: 0px;
+
+}
+#body.full-h{
+  height: 100%;
+}
+
+#body{
+  min-height: 100%;
+  height: auto !important;
+  margin: 0 auto;
+  position: relative; 
+}
+
+#info-textarea{
+  word-break: break-all;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.main-window{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#chat-input {
+  height: 100px;
+  position: absolute;
+  bottom: 10px;
+}
+#chat-view {
+  min-height: 100px;
+  overflow: auto;
+}
+#task-view {
+  min-height: 100px;
+  overflow: auto;
+}
+
+#footer {
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background: #112233;
+}
+
+#accordion2 {
+  /*min-height: 1000px;*/
+  overflow: auto;
+
+}
+
+.img-rounded3 {
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+
+.pad1 {
+  margin: 1px;
+}
+
+
+.text-right{
+  text-align: right;
+}
