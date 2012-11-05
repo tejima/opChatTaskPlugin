@@ -13,10 +13,10 @@ function app_url_for($arg1, $arg2){
 function javascript_tag($tag){
 
 $script = <<<EOF
-  <script src="opChatTaskPlugin/js/jquery.mockjax.js"></script>
-  <script src="opChatTaskPlugin/js/mock.js"></script>
   <link href="http://code.jquery.com/qunit/qunit-1.10.0.css" rel="stylesheet">
   <script src="http://code.jquery.com/qunit/qunit-1.10.0.js"></script>
+  <script src="test/QUnit/jquery.mockjax.js"></script>
+  <script src="test/QUnit/mock.js"></script>
   <script src="test/QUnit/tests.js"></script>
 EOF;
 
