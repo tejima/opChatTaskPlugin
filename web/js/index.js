@@ -170,6 +170,16 @@ $(function(){
       start();
     }, sleep);
   });
+
+
+
+setInterval(function() { 
+  $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
+    console.log(json);
+    $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
+    $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
+    },"json");
+  }, 3000);
 });
 
 

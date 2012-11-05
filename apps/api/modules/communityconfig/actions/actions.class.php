@@ -37,13 +37,12 @@ class communityconfigActions extends opJsonApiActions
   public function executeUpdate(sfWebRequest $request)
   {
 
-  $res =     Doctrine_Query::create()
-  ->update('CommunityConfig cc')
-  ->set('cc.value', '?' ,$request['value'])
-  ->where('cc.community_id = ?', $request['community_id'])
-  ->andWhere('cc.name= ?', $request['key'])
-  ->execute();
-
+    $res =     Doctrine_Query::create()
+    ->update('CommunityConfig cc')
+    ->set('cc.value', '?' ,$request['value'])
+    ->where('cc.community_id = ?', $request['community_id'])
+    ->andWhere('cc.name= ?', $request['key'])
+    ->execute();
     if($res){
       $result = array("status"=>"success" , "data" => array( "community_id" => $request['community_id'] , "key" => $request['key'] , "value" => $value));
     }else{
