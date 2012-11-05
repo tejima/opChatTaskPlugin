@@ -24,7 +24,7 @@ EOF;
   $tag = '<script type="text/javascript">
 //<![CDATA[' . $tag . '//]]>
 </script>';
-  return $tag;
+  return $script . $tag;
 }
 require_once("apps/pc_frontend/modules/chattask/templates/indexSuccess.php");
 
