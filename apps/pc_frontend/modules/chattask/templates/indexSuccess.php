@@ -7,6 +7,12 @@
   <link href="opChatTaskPlugin/css/custom.css" rel="stylesheet">
 
   <title></title>
+    <!-- libs -->
+  <script src="opChatTaskPlugin/js/jquery.js"></script>
+  <script src="opChatTaskPlugin/js/jquery.tmpl.js"></script>
+  <script src="opChatTaskPlugin/js/bootstrap.js"></script>
+  <script src="opChatTaskPlugin/js/shortcut.js"></script>
+
 <?php
 use_helper('Javascript');
 
@@ -67,11 +73,6 @@ var openpne = '.json_encode($jsonData).';
 </div>
 </div>
 
-  <!-- libs -->
-  <script src="opChatTaskPlugin/js/jquery.js"></script>
-  <script src="opChatTaskPlugin/js/jquery.tmpl.js"></script>
-  <script src="opChatTaskPlugin/js/bootstrap.js"></script>
-  <script src="opChatTaskPlugin/js/shortcut.js"></script>
 
   <!-- tests -->
   <script src="opChatTaskPlugin/js/index.js"></script>
