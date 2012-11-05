@@ -1,0 +1,6 @@
+language: php
+before_script:
+- php test/QUnit/index.php > test.html
+- mv web opChatTaskPlugin
+script:
+- phantomjs test/QUnit/phantom-qunit.js test.html

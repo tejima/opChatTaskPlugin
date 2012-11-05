@@ -73,21 +73,9 @@ var openpne = '.json_encode($jsonData).';
   <script src="opChatTaskPlugin/js/bootstrap.js"></script>
   <script src="opChatTaskPlugin/js/shortcut.js"></script>
 
-  <!-- mockup -->
-  <script src="opChatTaskPlugin/js/jquery.mockjax.js"></script>
-  <script src="opChatTaskPlugin/js/mock.js"></script>
-
   <!-- tests -->
-  <link href="http://code.jquery.com/qunit/qunit-1.10.0.css" rel="stylesheet">
-  <script src="http://code.jquery.com/qunit/qunit-1.10.0.js"></script>
-
-<!--
-  <script src="opChatTaskPlugin/js/tests.js"></script>
--->
   <script src="opChatTaskPlugin/js/index.js"></script>
 
-<!--
 <div id="qunit"></div>
--->
 </body>
 </html>
