@@ -1,7 +1,12 @@
 language: php
 before_script:
-- mkdir localhost
-- mv opChatTaskPlugin localhost/
-- php localhost/opChatTaskPlugin/test/QUnit/test.php > localhost/test.html
+- mkdir -p testhost/plugins/
+- mkdir -p testhost/web/
+- mv opChatTaskPlugin testhost/plugins/opChatTaskPlugin
+- cd testhost/web
+- ln -s ../plugins/opChatTaskPlugin/web opChatTaskPlugin
+- ln -s ../plugins/opChatTaskPlugin/test/QUnit/test.php test.php
+- cd ../../
+- php testhost/web/test.php > testhost/web/test.html
 script:
-- phantomjs localhost/opChatTaskPlugin/test/QUnit/phantom-qunit.js test.html
+- phantomjs testhost/plugins/opChatTaskPlugin/test/QUnit/phantom-qunit.js testhost/web/test.html
