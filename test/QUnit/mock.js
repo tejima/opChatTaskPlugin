@@ -1,14 +1,13 @@
-/*
 
 $.mockjax({
   url: '/api.php/community/search.json',
-  proxy: 'opChatTaskPlugin/community_search.json'
+  proxy: 'community_search.json'
 });
 
 $.mockjax({
   url: '/api.php/activity/post.json',
   data: { message: "2" },
-  proxy: 'opChatTaskPlugin/activity_post.json'
+  proxy: 'activity_post.json'
 });
 
 $.mockjax({
@@ -19,35 +18,28 @@ $.mockjax({
 
 $.mockjax({
   url: '/api.php/activity/post.json',
-  proxy: 'opChatTaskPlugin/activity_post.json'
+  proxy: 'activity_post.json'
 });
-*/
 
-/*
 $.mockjax({
   url: '/api.php/activity/search.json',
-  proxy: 'opChatTaskPlugin/activity_search.json'
+  proxy: 'activity_search.json'
 });
 
 $.mockjax({
   url: '/api.php/communityconfig/update.json',
-  proxy: 'opChatTaskPlugin/communityconfig_update.json'
+  proxy: 'communityconfig_update.json'
 });
 
 $.mockjax({
   url: '/api.php/communityconfig/search.json',
-  proxy: 'opChatTaskPlugin/communityconfig_search.json'
+  proxy: 'communityconfig_search.json'
 });
-*/
-/*
 $.mockjax({
   url: '/api.php/activity/delete.json',
-  proxy: 'opChatTaskPlugin/activity_delete.json'
+  proxy: 'activity_delete.json'
 });
-*/
-/*
 $.mockjax({
   url: '/api.php/community/member.json',
-  proxy: 'opChatTaskPlugin/community_member.json'
+  proxy: 'community_member.json'
 });
-*/
