@@ -1,4 +1,6 @@
 var active_community_id = -1;
+var memberlist_loaded = false;
+var chatview_loaded = false;
 
 var timeline_line = '<div class="row"><div style="float: left;"><img width="36" height="36" src="${member.profile_image}"></div><div class="span5"><a href="#" class="screenmae">${member.name}</a>${body}</div></div>';
 $.template("timelineTMPL",timeline_line);
@@ -14,19 +16,20 @@ $.template("chatlistTMPL",chatlist_line);
 var chatmember_line = '<img class="img-rounded3 pad1" src="${profile_image}" width="24" height="24">';
 $.template("chatmemberTMPL",chatmember_line);
 
-
 $.ajax({  
   url: '/api.php/community/search.json',  
   dataType: 'json',  
   data: {apiKey: openpne.apiKey},  
-  async: false,  
-  success: function(json){  
-  console.log(json);
-  active_community_id = json.data[0].id;
-  $.tmpl("chatlistTMPL",json.data).appendTo("#accordion2");
-                  //success code  
-               }  
-});  
+  async: true,  
+  success: function(json){ 
+    console.log("RES:comunity/search.json");
+    console.log(json);
+    active_community_id = json.data[0].id;
+    $.tmpl("chatlistTMPL",json.data).appendTo("#accordion2");
+    chatview_loaded = true;
+  },
+});
+
 
 
 //$.get('/api.php/community/search.json',{apiKey: openpne.apiKey},function(json){
@@ -171,16 +174,20 @@ $(function(){
     }, sleep);
   });
 
-
-
-setInterval(function() { 
-  $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
-    console.log(json);
-    $("#chat-view > *").remove();
-    $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
-    $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
+  setInterval(function() { 
+    $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
+      console.log(json);
+      $("#chat-view > *").remove();
+      $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
+      $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
     },"json");
   }, 3000);
+
 });
+
+
+
+
+
 
 

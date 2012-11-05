@@ -1,6 +1,7 @@
 language: php
 before_script:
-- php test/QUnit/index.php > test.html
-- mv web opChatTaskPlugin
+- mkdir localhost
+- mv opChatTaskPlugin localhost/
+- php localhost/opChatTaskPlugin/test/QUnit/test.php > localhost/test.html
 script:
-- phantomjs test/QUnit/phantom-qunit.js test.html
+- phantomjs localhost/opChatTaskPlugin/test/QUnit/phantom-qunit.js test.html
