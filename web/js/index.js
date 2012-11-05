@@ -142,9 +142,9 @@ $(function(){
   $(".accordion-toggle").live("click",function(){
     var targetId = $(this).attr('target-id');
     active_community_id = targetId;
-    $("#chat-view > *").remove();
     $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
       console.log(json);
+      $("#chat-view > *").remove();
       $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
       $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
     },"json");
@@ -176,6 +176,7 @@ $(function(){
 setInterval(function() { 
   $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
     console.log(json);
+    $("#chat-view > *").remove();
     $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
     $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
     },"json");
