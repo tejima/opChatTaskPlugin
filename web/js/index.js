@@ -7,7 +7,7 @@ var task_line = '<div class="block-task"><div class="row"><div class="span1"><im
 task_line += '<div class="row"><div class="span3"><small><input type="checkbox" target-id="${id}">${body}</small></div></div><div class="row"><div class="span2 offset1 text-right"><small><a href="">追加時点に移動</a></small></div></div></div>';
 $.template("taskTMPL",task_line);
 
-var chatlist_line = '<div class="accordion-group"><div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-${id}" target-id="${id}">${name}</a></div>';
+var chatlist_line = '<div class="accordion-group"><div class="accordion-heading"><img width="36" height="36" src="${community_image_url}" style="float: left;margin-right: 2px;"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-${id}" target-id="${id}">${name}</a></div>';
 chatlist_line += '<div id="collapse-${id}" class="accordion-body collapse"><div class="accordion-inner" target-id="${id}"></div></div></div>';
 $.template("chatlistTMPL",chatlist_line);
 
@@ -27,6 +27,7 @@ $.ajax({
                   //success code  
                }  
 });  
+
 
 //$.get('/api.php/community/search.json',{apiKey: openpne.apiKey},function(json){
 //  console.log(json);
@@ -50,9 +51,11 @@ $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey},function(json){
   */
 },"json");
 
-$.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey}, function(json){
-  console.log(json);
-  $("#info-textarea").text(json.data.value); 
+$.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json){
+  console.log("json.data.value");
+  console.log(json.data);  
+  console.log(json.data['value']);
+  $("#info-textarea").text(json.data['value']); 
 },"json");
 
 $(function(){
@@ -100,10 +103,10 @@ $(function(){
 
   $("#info-save-button").click(function(){
     var msg = $("#info-textarea").val();
-    $.get('/api.php/communityconfig/update.json',{apiKey: openpne.apiKey , message: msg},function(json){
+    $.get('/api.php/communityconfig/update.json',{apiKey: openpne.apiKey , key: 'memo', value: msg , community_id: active_community_id} ,function(json){
       console.log("info-save-button");
       console.log(json);
-      $("#info-textarea").text(json.data.value);
+      $("#info-textarea").text(json.data['value']);
       $("#done").show();
       $("#done").animate({opacity: 0.99}, 2000 );
       $("#done").fadeOut(1000);
@@ -144,6 +147,13 @@ $(function(){
       console.log(json);
       $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
       $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
+    },"json");
+
+    $.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json){
+      console.log("json.data.value");
+      console.log(json.data);  
+      console.log(json.data['value']);
+      $("#info-textarea").text(json.data['value']); 
     },"json");
 
     var sleep = 0;

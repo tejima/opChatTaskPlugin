@@ -1,0 +1,8 @@
+communityconfig_search:
+  url: /communityconfig/search.json
+  param: { module: communityconfig, action: search, sf_format: json }
+  requirements: { sf_method: [get] }
+communityconfig_update:
+  url: /communityconfig/update.json
+  param: { module: communityconfig, action: update, sf_format: json }
+  requirements: { sf_method: [get] }

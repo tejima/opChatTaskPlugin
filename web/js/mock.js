@@ -28,7 +28,7 @@ $.mockjax({
   url: '/api.php/activity/search.json',
   proxy: 'opChatTaskPlugin/activity_search.json'
 });
-*/
+
 $.mockjax({
   url: '/api.php/communityconfig/update.json',
   proxy: 'opChatTaskPlugin/communityconfig_update.json'
@@ -38,11 +38,13 @@ $.mockjax({
   url: '/api.php/communityconfig/search.json',
   proxy: 'opChatTaskPlugin/communityconfig_search.json'
 });
-
+*/
+/*
 $.mockjax({
   url: '/api.php/activity/delete.json',
   proxy: 'opChatTaskPlugin/activity_delete.json'
 });
+*/
 /*
 $.mockjax({
   url: '/api.php/community/member.json',
