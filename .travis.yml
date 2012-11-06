@@ -1,5 +1,6 @@
 language: php
 before_script:
+- cd ..
 - mkdir -p testhost/plugins/
 - mkdir -p testhost/web/
 - mv opChatTaskPlugin testhost/plugins/opChatTaskPlugin
