@@ -1,3 +1,17 @@
+$.mockjaxSettings = {
+  status:        200,
+  statusText:    'OK',
+  responseTime:  100,
+  isTimeout:     false,
+  contentType:   'text/plain',
+  response:      '',
+  responseText:  '',
+  responseXML:   '',
+  proxy:         '',
+  lastModified:  null,
+  etag:          ''
+};
+
 
 $.mockjax({
   url: '/api.php/community/search.json',
