@@ -26,5 +26,5 @@ EOF;
 </script>';
   return $script . $tag;
 }
-require_once(dirname(__FILE__)."/../../apps/pc_frontend/modules/chattask/templates/indexSuccess.php");
+require_once(dirname(__FILE__)."/../apps/pc_frontend/modules/chattask/templates/indexSuccess.php");
 
