@@ -13,11 +13,11 @@ function app_url_for($arg1, $arg2){
 function javascript_tag($tag){
 
 $script = <<<EOF
-  <link href="../plugins/opChatTaskPlugin/test/QUnit/qunit.css" rel="stylesheet">
-  <script src="../plugins/opChatTaskPlugin/test/QUnit/qunit.js"></script>
-  <script src="../plugins/opChatTaskPlugin/test/QUnit/jquery.mockjax.js"></script>
-  <script src="../plugins/opChatTaskPlugin/test/QUnit/mock.js"></script>
-  <script src="../plugins/opChatTaskPlugin/test/QUnit/tests.js"></script>
+  <link href="/opChatTaskPlugin/QUnit/qunit.css" rel="stylesheet">
+  <script src="/opChatTaskPlugin/QUnit/qunit.js"></script>
+  <script src="/opChatTaskPlugin/QUnit/jquery.mockjax.js"></script>
+  <script src="/opChatTaskPlugin/QUnit/mock.js"></script>
+  <script src="/opChatTaskPlugin/QUnit/tests.js"></script>
 EOF;
 
 
