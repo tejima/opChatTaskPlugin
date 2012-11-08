@@ -1,4 +1,6 @@
 language: php
+php:
+  - 5.4
 before_script:
 - cd ..
 - mkdir -p testhost/plugins/
@@ -9,5 +11,7 @@ before_script:
 - ln -s ../plugins/opChatTaskPlugin/test/QUnit/test.php test.php
 - cd ../../
 - php testhost/web/test.php > testhost/web/test.html
+- cd testhost/web/
+- php -S 0.0.0.0:8000
 script:
-- phantomjs testhost/plugins/opChatTaskPlugin/test/QUnit/phantom-qunit.js testhost/web/test.html
+- phantomjs testhost/plugins/opChatTaskPlugin/test/QUnit/phantom-qunit.js http://localhost:8000/test.php
