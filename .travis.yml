@@ -12,4 +12,4 @@ before_script:
 - php -S 0.0.0.0:8000 &
 - cd ../../
 script:
-- phantomjs opChatTaskPlugin/test/QUnit/phantom-qunit.js http://localhost:8000/test.php
+- phantomjs opChatTaskPlugin/web/QUnit/phantom-qunit.js http://localhost:8000/test.php
