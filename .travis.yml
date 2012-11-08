@@ -9,7 +9,6 @@ before_script:
 - cd testhost/web
 - ln -s ../plugins/opChatTaskPlugin/web opChatTaskPlugin
 - ln -s ../plugins/opChatTaskPlugin/test/QUnit/test.php test.php
-- cd testhost/web/
 - php -S 0.0.0.0:8000 &
 - cd ../../
 script:
