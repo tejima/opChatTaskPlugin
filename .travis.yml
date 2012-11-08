@@ -9,9 +9,8 @@ before_script:
 - cd testhost/web
 - ln -s ../plugins/opChatTaskPlugin/web opChatTaskPlugin
 - ln -s ../plugins/opChatTaskPlugin/test/QUnit/test.php test.php
-- cd ../../
-- php testhost/web/test.php > testhost/web/test.html
 - cd testhost/web/
 - php -S 0.0.0.0:8000 &
+- cd ../../
 script:
 - phantomjs testhost/plugins/opChatTaskPlugin/test/QUnit/phantom-qunit.js http://localhost:8000/test.php
