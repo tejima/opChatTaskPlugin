@@ -13,8 +13,8 @@ function app_url_for($arg1, $arg2){
 function javascript_tag($tag){
 
 $script = <<<EOF
-  <link href="http://code.jquery.com/qunit/qunit-1.10.0.css" rel="stylesheet">
-  <script src="http://code.jquery.com/qunit/qunit-1.10.0.js"></script>
+  <link href="../plugins/opChatTaskPlugin/test/QUnit/qunit.css" rel="stylesheet">
+  <script src="../plugins/opChatTaskPlugin/test/QUnit/qunit.js"></script>
   <script src="../plugins/opChatTaskPlugin/test/QUnit/jquery.mockjax.js"></script>
   <script src="../plugins/opChatTaskPlugin/test/QUnit/mock.js"></script>
   <script src="../plugins/opChatTaskPlugin/test/QUnit/tests.js"></script>
