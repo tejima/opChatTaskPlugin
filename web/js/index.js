@@ -2,26 +2,28 @@ var active_community_id = -1;
 var memberlist_loaded = false;
 var chatview_loaded = false;
 
+
+
 var timeline_line = '<div class="row"><div style="float: left;"><img width="36" height="36" src="${member.profile_image}"></div><div class="span5"><a href="#" class="screenmae">${member.name}</a>${body}</div></div>';
-$.template("timelineTMPL",timeline_line);
+$.template("timelineTMPL", timeline_line);
 
 var task_line = '<div class="block-task"><div class="row"><div class="span1"><img width="24" height="24" src="${member.profile_image}"></div></div>';
 task_line += '<div class="row"><div class="span3"><small><input type="checkbox" target-id="${id}">${body}</small></div></div><div class="row"><div class="span2 offset1 text-right"><small><a href="">追加時点に移動</a></small></div></div></div>';
-$.template("taskTMPL",task_line);
+$.template("taskTMPL", task_line);
 
 var chatlist_line = '<div class="accordion-group"><div class="accordion-heading"><img width="36" height="36" src="${community_image_url}" style="float: left;margin-right: 2px;"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse-${id}" target-id="${id}">${name}</a></div>';
 chatlist_line += '<div id="collapse-${id}" class="accordion-body collapse"><div class="accordion-inner" target-id="${id}"></div></div></div>';
-$.template("chatlistTMPL",chatlist_line);
+$.template("chatlistTMPL", chatlist_line);
 
 var chatmember_line = '<img class="img-rounded3 pad1" src="${profile_image}" width="24" height="24">';
-$.template("chatmemberTMPL",chatmember_line);
+$.template("chatmemberTMPL", chatmember_line);
 
-$.ajax({  
+$.ajax({
   url: '/api.php/community/search.json',  
-  dataType: 'json',  
-  data: {apiKey: openpne.apiKey},  
+  dataType: 'json',
+  data: {apiKey: openpne.apiKey},
   async: true,  
-  success: function(json){ 
+  success: function(json) {
     console.log("RES:comunity/search.json");
     console.log(json);
     active_community_id = json.data[0].id;
@@ -41,7 +43,7 @@ $.ajax({
 console.log("active_community_id");
 console.log(active_community_id);
 
-$.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
+$.get('/api.php/activity/search.json', {apiKey: openpne.apiKey,target: "community", target_id: active_community_id}, function(json) {
   console.log(json);
   $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
   $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
@@ -54,7 +56,7 @@ $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey},function(json){
   */
 },"json");
 
-$.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json){
+$.get('/api.php/communityconfig/search.json', {apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json) {
   console.log("json.data.value");
   console.log(json.data);  
   console.log(json.data['value']);
@@ -63,11 +65,8 @@ $.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_i
 
 $(function(){
   setTimeout(function() {
-    stop();
     $("#chat-view").css("height",$("html").height()-130);
-    //$("#chat-view").css("height",$(".layout").height()-130);
-    start();
-  }, 200);
+  }, 500);
 
   $("#chat-message").focusin(function(){
     shortcut.add("Shift+Enter",function() {
@@ -163,14 +162,12 @@ $(function(){
     if($(".accordion-inner[target-id='"+ targetId +"'] > *").size() > 0){
       sleep = 3000;
     }
-    stop();
     setTimeout(function() {
       $.get('/api.php/community/member.json',{apiKey: openpne.apiKey ,community_id: targetId},function(json){
         console.log(json.data);
         $(".accordion-inner[target-id='"+ targetId +"'] > *").remove();
         $.tmpl("chatmemberTMPL",json.data).appendTo(".accordion-inner[target-id='"+ targetId +"']");
       },"json");
-      start();
     }, sleep);
   });
 

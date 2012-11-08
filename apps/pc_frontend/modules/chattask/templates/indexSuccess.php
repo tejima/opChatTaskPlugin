@@ -73,10 +73,7 @@ var openpne = '.json_encode($jsonData).';
 </div>
 </div>
 
-
-  <!-- tests -->
-  <script src="opChatTaskPlugin/js/index.js"></script>
-
+<script src="opChatTaskPlugin/js/index.js"></script>
 <div id="qunit"></div>
 </body>
 </html>
