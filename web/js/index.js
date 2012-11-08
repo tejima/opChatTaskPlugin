@@ -3,7 +3,6 @@ var memberlist_loaded = false;
 var chatview_loaded = false;
 
 
-
 var timeline_line = '<div class="row"><div style="float: left;"><img width="36" height="36" src="${member.profile_image}"></div><div class="span5"><a href="#" class="screenmae">${member.name}</a>${body}</div></div>';
 $.template("timelineTMPL", timeline_line);
 
@@ -24,8 +23,6 @@ $.ajax({
   data: {apiKey: openpne.apiKey},
   async: true,  
   success: function(json) {
-    console.log("RES:comunity/search.json");
-    console.log(json);
     active_community_id = json.data[0].id;
     $.tmpl("chatlistTMPL",json.data).appendTo("#accordion2");
     chatview_loaded = true;
@@ -35,31 +32,22 @@ $.ajax({
 
 
 //$.get('/api.php/community/search.json',{apiKey: openpne.apiKey},function(json){
-//  console.log(json);
+//  
 //active_community_id = json.data[0].id;
  // $.tmpl("chatlistTMPL",json.data).appendTo("#accordion2");
 //},"json");
 
-console.log("active_community_id");
-console.log(active_community_id);
+
+
 
 $.get('/api.php/activity/search.json', {apiKey: openpne.apiKey,target: "community", target_id: active_community_id}, function(json) {
-  console.log(json);
+  
   $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
   $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
 },"json");
 
-$.get('/api.php/activity/search.json',{apiKey: openpne.apiKey},function(json){
-  console.log(json);
-  /*
-  $.tmpl("taskTMPL",json.data).appendTo("#task-view");
-  */
-},"json");
 
 $.get('/api.php/communityconfig/search.json', {apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json) {
-  console.log("json.data.value");
-  console.log(json.data);  
-  console.log(json.data['value']);
   $("#info-textarea").text(json.data['value']); 
 },"json");
 
@@ -82,12 +70,11 @@ $(function(){
     if(!msg){
       return;
     }
-    $.get('/api.php/activity/post.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id, body: msg},function(json){
-      console.log(json);
+    $.get('/api.php/activity/post.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id, body: msg},function(json){  
       $.tmpl("timelineTMPL",json.data).appendTo("#chat-view");
       $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
       $("#chat-message").val("");
-    },"json").error(function(){console.log("通信できませんでした")});
+    },"json");
   });
 
   $("#info-mode-button").toggle(
@@ -105,9 +92,7 @@ $(function(){
 
   $("#info-save-button").click(function(){
     var msg = $("#info-textarea").val();
-    $.get('/api.php/communityconfig/update.json',{apiKey: openpne.apiKey , key: 'memo', value: msg , community_id: active_community_id} ,function(json){
-      console.log("info-save-button");
-      console.log(json);
+    $.get('/api.php/communityconfig/update.json',{apiKey: openpne.apiKey , key: 'memo', value: msg , community_id: active_community_id} ,function(json){ 
       $("#info-textarea").text(json.data['value']);
       $("#done").show();
       $("#done").animate({opacity: 0.99}, 2000 );
@@ -117,9 +102,7 @@ $(function(){
       $("#info-save-button").attr("disabled","disabled").addClass("disabled");
     },"json");
   });
-
   $("#taskdone-form :checkbox").live("click",function(){
-    console.log($(this).attr('checked'));
     var block = $(this).parents(".block-task");
     if($(this).attr('checked')) {
       $.get('/api.php/activity/delete.json',{apiKey: openpne.apiKey ,id: $(this).attr('target-id')},function(json){
@@ -127,12 +110,11 @@ $(function(){
           block.fadeOut();
           msg = "タスク完了";
           $.get('/api.php/activity/post.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id, body: msg},function(json){
-            console.log(json);
+            
             $.tmpl("timelineTMPL",json.data).appendTo("#chat-view");
             $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
 
-          },"json").error(function(){console.log("通信できませんでした")});
-
+          },"json");
         } else {
           alert("削除できなかった");
         }
@@ -144,17 +126,19 @@ $(function(){
   $(".accordion-toggle").live("click",function(){
     var targetId = $(this).attr('target-id');
     active_community_id = targetId;
+ 
     $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
-      console.log(json);
+    
+      
       $("#chat-view > *").remove();
       $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
       $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
     },"json");
 
     $.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json){
-      console.log("json.data.value");
-      console.log(json.data);  
-      console.log(json.data['value']);
+      
+      
+      
       $("#info-textarea").text(json.data['value']); 
     },"json");
 
@@ -164,7 +148,7 @@ $(function(){
     }
     setTimeout(function() {
       $.get('/api.php/community/member.json',{apiKey: openpne.apiKey ,community_id: targetId},function(json){
-        console.log(json.data);
+        
         $(".accordion-inner[target-id='"+ targetId +"'] > *").remove();
         $.tmpl("chatmemberTMPL",json.data).appendTo(".accordion-inner[target-id='"+ targetId +"']");
       },"json");
@@ -173,7 +157,7 @@ $(function(){
 
   setInterval(function() { 
     $.get('/api.php/activity/search.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community_id},function(json){
-      console.log(json);
+      
       $("#chat-view > *").remove();
       $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
       $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());

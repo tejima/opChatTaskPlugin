@@ -1,4 +1,5 @@
 $.mockjaxSettings = {
+  log:           function(msg) { window['console'] && window.console.log && window.console.log(msg); },   
   status:        200,
   statusText:    'OK',
   responseTime:  100,
