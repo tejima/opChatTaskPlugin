@@ -1,71 +1,85 @@
-asyncTest('LOAD TEST', function() {
-  setTimeout(function(){
-    ok(true, 'asyncTest');
-    start();
-  });
-});
+/*
+module("communityconfig API Test"),{
+}
 
-asyncTest('timeline-load', function() {
+
+asyncTest('communityconfig/search.json', function() {
   setTimeout(function() {
-    equal($("#chat-view > *").size(),4);
+    ok($("#chat-view > *").size() > 0,"private_から始まるキーはAPIから読み出し不可");
 
     start();
-  });
+  },1000);
 });
 
-asyncTest('空投稿は無視', function() {
+asyncTest('communityconfig/update.json', function() {
+  setTimeout(function() {
+    ok($("#chat-view > *").size() > 0,"フィールドにエントリが増えてればOK");
+
+    start();
+  },1000);
+});
+*/
+
+
+
+module("UI Test"),{
+  setup:function(){
+    $("#chat-view > *").remove();
+  }
+}
+
+asyncTest('timelineロード', function() {
+  setTimeout(function() {
+    ok($("#chat-view > *").size() > 0,"フィールドにエントリが増えてればOK");
+
+    start();
+  },1000);
+});
+
+asyncTest('タイムライン投稿', function() {
   var prev_size = $("#chat-view > *").size();
   $("#chat-post").click();
 
   setTimeout(function() {
-   equal($("#chat-view > *").size(),prev_size);
+   equal($("#chat-view > *").size(),prev_size,"空投稿は更新されない");
    start();
-  });
-});
-
-asyncTest('正しい投稿は一行増える',function(){
-  var prev_size = $("#chat-view > *").size();
-  $("#chat-message").text("DATADATA");
-  $("#chat-post").click();
-
-  setTimeout(function() {
-   equal($("#chat-view > *").size(),prev_size+1,"一行増える");
-   start();
-  });
+  },1000);
 });
 
 asyncTest('memberlist-click', function() {
-  $("a.accordion-toggle[target-id=4]").click();
-
-  setTimeout(function() {
-    start();
-    ok($("#collapse-4").hasClass('in'));
-    equal($(".accordion-inner[target-id=4] > *").size(),4);
-  });
-
-  $("a.accordion-toggle[target-id=5]").click();  
-  
-  setTimeout(function() {
-    start();
-    ok($("#collapse-5").hasClass('in'));
-    equal($(".accordion-inner[target-id=5] > *").size(),4);
-  });
 
   $("a.accordion-toggle[target-id=1]").click();
   
   setTimeout(function() {
     start();
-    ok($("#collapse-5").hasClass('in'));
-    equal($(".accordion-inner[target-id=1] > *").size(),4);
-  });
+    ok($("#collapse-1").hasClass('in'),"id=1 open");
+  },1000);
+});
+asyncTest('memberlist-click', function() {
+  $("a.accordion-toggle[target-id=4]").click();
+
+  setTimeout(function() {
+    start();
+    ok($("#collapse-4").hasClass('in'),"id=4 open");
+  },1000);
+});
+asyncTest('memberlist-click', function() {
+  $("a.accordion-toggle[target-id=5]").click();  
   
+  setTimeout(function() {
+    start();
+    ok($("#collapse-5").hasClass('in'),"id=5 open");
+  },1000);
+
+});
+asyncTest('memberlist-click', function() {
+
   $("a.accordion-toggle[target-id=3]").click();
 
   setTimeout(function() {
     start();
-    ok($("#collapse-5").hasClass('in'));
-    equal($(".accordion-inner[target-id=3] > *").size(),4);
-  });
+    ok($("#collapse-3").hasClass('in'),"id=3 open");
+  },1000);
 });
 
 asyncTest('memo-edit', function() {
@@ -75,18 +89,18 @@ asyncTest('memo-edit', function() {
   setTimeout(function() {
     start();
     $("#info-textarea").text("MEMOMEMOMEMO");
-  });
+  },1000);
   
   setTimeout(function() {
     start();
     $("#info-save-button").click();
-  });
+  },1000);
   
   ok(true,"no error OK");
 });
 
 /*
-uasyncTest('task done', function() {
+asyncTest('task done', function() {
   
   var prev_size = -99;
   setTimeout(function() {
