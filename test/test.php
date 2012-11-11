@@ -20,11 +20,10 @@ $script = <<<EOF
   <script src="/opChatTaskPlugin/QUnit/tests.js"></script>
 EOF;
 
-
   $tag = '<script type="text/javascript">
 //<![CDATA[' . $tag . '//]]>
 </script>';
   return $script . $tag;
 }
-require_once(dirname(__FILE__)."/../plugins/opChatTaskPlugin/apps/pc_frontend/modules/chattask/templates/indexSuccess.php");
+require_once(dirname(__FILE__)."/../apps/pc_frontend/modules/chattask/templates/indexSuccess.php");
 
