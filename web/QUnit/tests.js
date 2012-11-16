@@ -1,15 +1,16 @@
-/*
+
 module("communityconfig API Test"),{
 }
 
 
 asyncTest('communityconfig/search.json', function() {
-  setTimeout(function() {
-    ok($("#chat-view > *").size() > 0,"private_から始まるキーはAPIから読み出し不可");
+  $.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_id: active_community_id,key: 'private_hogehoge'}, function(json){
+  },"json").error(function(){
+    ok("privateキーワードはAPIから読み込み不可");
+  });
 
-    start();
-  },1000);
 });
+
 
 asyncTest('communityconfig/update.json', function() {
   setTimeout(function() {
@@ -18,7 +19,7 @@ asyncTest('communityconfig/update.json', function() {
     start();
   },1000);
 });
-*/
+
 
 
 
