@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.9.0" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>opChatTaskPlugin</name>
+ <channel>plugins.openpne.jp</channel>
+ <summary>チャット＆タスク</summary>
+ <description>チャット機能とタスク機能を追加</description>
+ <lead>
+  <name>手嶋守</name>
+  <user>tejima</user>
+  <email />
+  <active>yes</active>
+ </lead>
+ <date>2012-12-10</date>
+ <time>19:29:01</time>
+ <version>
+  <release>0.9</release>
+  <api>0.9</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license>Apache</license>
+ <notes>
+none
+ </notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="4aa424d6ac808d7f0c4806e2f24356d0" name="apps/api/config/routing.yml" role="data" />
+   <file baseinstalldir="/" md5sum="f6e097bdbf81a61f5032c5bce30a92ed" name="apps/api/modules/communityconfig/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="apps/api/modules/communityconfig/templates/searchSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="apps/api/modules/communityconfig/templates/updateSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="9d208409a85c7b6723bad8e04beb3310" name="apps/api/modules/memberconfig/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="apps/api/modules/memberconfig/templates/indexSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="362839a5a5818e85c0daf2c94f0bb512" name="apps/pc_frontend/modules/chattask/actions/actions.class.php" role="data" />
+   <file baseinstalldir="/" md5sum="31a9b416e4603892e50fc52658028ae8" name="apps/pc_frontend/modules/chattask/config/security.yml" role="data" />
+   <file baseinstalldir="/" md5sum="55b9b83d0e83ffd419b5940f5e33e3fa" name="apps/pc_frontend/modules/chattask/config/view.yml" role="data" />
+   <file baseinstalldir="/" md5sum="6ca00f9af4d9aaabede9ced58c83d704" name="apps/pc_frontend/modules/chattask/templates/indexSuccess.php" role="data" />
+   <file baseinstalldir="/" md5sum="532ce7ec1a18a4278520fe1b0617c76a" name="test/test.php" role="data" />
+   <file baseinstalldir="/" md5sum="6059fe5458d6348af2659d38af527912" name="test/bootstrap/database.php" role="data" />
+   <file baseinstalldir="/" md5sum="155ce720c060aa5fc9e2bbbc779b7a13" name="test/bootstrap/functional.php" role="data" />
+   <file baseinstalldir="/" md5sum="53df737807ad0e3ba7dd2abb8cab3e3c" name="test/bootstrap/unit.php" role="data" />
+   <file baseinstalldir="/" md5sum="8471fade12b0760fab6715ffb8b8f9e4" name="test/fixtures/test_data.yml" role="data" />
+   <file baseinstalldir="/" md5sum="8a98cacfcc151f2808c399543fd52679" name="test/functional/mobile_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="1faa199e87c1ce270e86edee706b37fd" name="test/functional/pc_frontend/skeletonActionsTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="52440ab0abcc01c98551283f1e9942e1" name="test/unit/model/SkeletonTest.php" role="data" />
+   <file baseinstalldir="/" md5sum="166fbb8fd4a3f5207a500bdf6c2d9186" name="web/css/bootstrap-responsive.css" role="data" />
+   <file baseinstalldir="/" md5sum="a28ca18eeef308daa32c00c928f40d00" name="web/css/bootstrap-responsive.min.css" role="data" />
+   <file baseinstalldir="/" md5sum="35e5404eb5a0dc01002cbb76b1c99b09" name="web/css/bootstrap.css" role="data" />
+   <file baseinstalldir="/" md5sum="a47dadad1612044aa924aa1e616ad662" name="web/css/bootstrap.min.css" role="data" />
+   <file baseinstalldir="/" md5sum="74931acb133faf043f8d93d436c19a25" name="web/css/custom.css" role="data" />
+   <file baseinstalldir="/" md5sum="71b685b5fbe06e99d74cff38145985f5" name="web/css/docs.css" role="data" />
+   <file baseinstalldir="/" md5sum="9bbc6e9602998a385c2ea13df56470fd" name="web/img/glyphicons-halflings-white.png" role="data" />
+   <file baseinstalldir="/" md5sum="2516339970d710819585f90773aebe0a" name="web/img/glyphicons-halflings.png" role="data" />
+   <file baseinstalldir="/" md5sum="09c81293918e1c72e759b94586827d64" name="web/js/bootstrap.js" role="data" />
+   <file baseinstalldir="/" md5sum="41e29a3120a385a8d44e06987d8688c9" name="web/js/bootstrap.min.js" role="data" />
+   <file baseinstalldir="/" md5sum="4c23e1932b93d1032cdb7429b0dfdf11" name="web/js/index.js" role="data" />
+   <file baseinstalldir="/" md5sum="7fe6434418608d50bdd582dc39e7e2ec" name="web/js/jquery.js" role="data" />
+   <file baseinstalldir="/" md5sum="f22250591f4aae07be674161db587fda" name="web/js/jquery.tmpl.js" role="data" />
+   <file baseinstalldir="/" md5sum="c6702bc062d69b640124fd82de16ecdc" name="web/js/jquery.xmldom.js" role="data" />
+   <file baseinstalldir="/" md5sum="00b6cec9d94c0a831648338d578773d8" name="web/js/json2.js" role="data" />
+   <file baseinstalldir="/" md5sum="b27f4883fb2ae212ae744545a4246c8b" name="web/js/phantom-qunit.js" role="data" />
+   <file baseinstalldir="/" md5sum="cec4955d42fd38eb31e83936f765ff38" name="web/js/shortcut.js" role="data" />
+   <file baseinstalldir="/" md5sum="d31add3844f57a9789020d94a3b22a68" name="web/js/testAPI.js" role="data" />
+   <file baseinstalldir="/" md5sum="a3ad65157204a545bc7352c324a04ea3" name="web/js/testswarm.js" role="data" />
+   <file baseinstalldir="/" md5sum="2061dd2b91ba1c5d5270a03b30078604" name="web/QUnit/activity_delete.json" role="data" />
+   <file baseinstalldir="/" md5sum="2061dd2b91ba1c5d5270a03b30078604" name="web/QUnit/activity_post.json" role="data" />
+   <file baseinstalldir="/" md5sum="173fd8df3a8ea97ecad3d95be0649769" name="web/QUnit/activity_search.json" role="data" />
+   <file baseinstalldir="/" md5sum="817e1a09fec6c0f1adaf4386cb9d95aa" name="web/QUnit/communityconfig_search.json" role="data" />
+   <file baseinstalldir="/" md5sum="817e1a09fec6c0f1adaf4386cb9d95aa" name="web/QUnit/communityconfig_update.json" role="data" />
+   <file baseinstalldir="/" md5sum="0005460572073463b2ea3f4cc2eda604" name="web/QUnit/community_member.json" role="data" />
+   <file baseinstalldir="/" md5sum="3fb53bf297dc5fb7f45d5fd347cab154" name="web/QUnit/community_search.json" role="data" />
+   <file baseinstalldir="/" md5sum="8d1794990a5a9af155033da85f9a8441" name="web/QUnit/component.json" role="data" />
+   <file baseinstalldir="/" md5sum="370d2e1e9fba3d7bee60ad5a7222ca64" name="web/QUnit/index.php" role="data" />
+   <file baseinstalldir="/" md5sum="1bf5ca8b30f4ef9f1bfd6c4ad6be8db4" name="web/QUnit/jquery.mockjax.js" role="data" />
+   <file baseinstalldir="/" md5sum="d48deef4f5c00bd798d326b1c397001d" name="web/QUnit/mock.js" role="data" />
+   <file baseinstalldir="/" md5sum="e3e139afde2d304fad890fa74bcceab7" name="web/QUnit/package.json" role="data" />
+   <file baseinstalldir="/" md5sum="b27f4883fb2ae212ae744545a4246c8b" name="web/QUnit/phantom-qunit.js" role="data" />
+   <file baseinstalldir="/" md5sum="4aa97cc832ce7083504642f66b2a2189" name="web/QUnit/qunit.css" role="data" />
+   <file baseinstalldir="/" md5sum="634210929ce5dba07d35a40101b78cef" name="web/QUnit/qunit.js" role="data" />
+   <file baseinstalldir="/" md5sum="8fbbf990960e95545901c2d50cc267f5" name="web/QUnit/run-qunit.js" role="data" />
+   <file baseinstalldir="/" md5sum="ff48e0e8a1776291bf3136dd0dd2cfd8" name="web/QUnit/tests.js" role="data" />
+   <file baseinstalldir="/" md5sum="be9f832c206e44772c5130fd3814490b" name="web/QUnit/testswarm.json" role="data" />
+   <file baseinstalldir="/" md5sum="617856c3fb2b7177fe7fffa8a1ddd1a1" name="dependencies.yml.sample" role="data" />
+   <file baseinstalldir="/" md5sum="a165b0c48efd38c3c2725a282922c6f1" name="README.md" role="data" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.3</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.9</release>
+    <api>0.9</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2012-12-10</date>
+   <license>Apache</license>
+   <notes>
+none
+   </notes>
+  </release>
+ </changelog>
+</package>

@@ -7,7 +7,7 @@
  * @subpackage memberconfig
  * @author     Mamoru Tejima
  */
-class communityconfigActions extends opJsonApiActions
+class memberconfigActions extends sfActions
 {
  /**
   * Executes index action
@@ -16,7 +16,8 @@ class communityconfigActions extends opJsonApiActions
   */
   public function executeSearch(sfWebRequest $request)
   {
-    $value = Doctrine::getTable("CommunityConfig")->retrieveValueByNameAndCommunityId($request['key'],$request['community_id']);
+    $memberId = $this->getUser()->getMemberId();
+//    $value = Doctrine::getTable("MemberConfig")->retrieveValueByNameAndCommunityId($request['key'],$request['member_id']);
     if($value) 
     {
       $ar = array("status"=>"success" , "data" => array( "community_id" => $request['community_id'] , "key" => $request['key'] , "value" => $value));

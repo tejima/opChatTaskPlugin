@@ -6,3 +6,12 @@ communityconfig_update:
   url: /communityconfig/update.json
   param: { module: communityconfig, action: update, sf_format: json }
   requirements: { sf_method: [get] }
+memberconfig_search:
+  url: /memberconfig/search.json
+  param: { module: memberconfig, action: search, sf_format: json }
+  requirements: { sf_method: [get] }
+memberconfig_update:
+  url: /memberconfig/update.json
+  param: { module: memberconfig, action: update, sf_format: json }
+  requirements: { sf_method: [get] }
+
