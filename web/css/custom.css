@@ -20,7 +20,8 @@ body {
 #info-textarea{
   word-break: break-all;
   overflow-y: scroll;
-  height: 200px;
+  height: 300px;
+  width: 224px;
 }
 
 .main-window{

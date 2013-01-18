@@ -49,7 +49,7 @@ var openpne = '.json_encode($jsonData).';
       </div>
   </div>
 </div>
-<div id="container_left" class="resize" style="position: absolute;margin: 0px;left: 0px;right: auto;top: 40px;bottom: 30px;z-index: 1;width: 239px;display: block;visibility: visible;overflow: hidden; background: #f5f5f5;">
+<div id="container_left" class="resizeheight" style="position: absolute;margin: 0px;left: 0px;right: auto;top: 40px;bottom: 30px;z-index: 1;width: 239px;display: block;visibility: visible;overflow: hidden; background: #f5f5f5;">
 
 
   <div class="navbar">
@@ -62,7 +62,7 @@ var openpne = '.json_encode($jsonData).';
   <div class="accordion" id="accordion2">
   </div>
 </div>
-<div id="container_center" class="resize" style="position: absolute;margin: 0px;left: 240px;right: 0px;top: 40px;bottom: 30px;width: 922px;z-index: 1;display: block;visibility: visible;overflow: hidden;">
+<div id="container_center" class="resizeheight resizewidth-481" style="position: absolute;margin: 0px;left: 240px;right: 0px;top: 40px;bottom: 30px;z-index: 1;display: block;visibility: visible;overflow: hidden;">
   <div class="navbar">
     <div class="navbar-inner">
       <a class="brand" href="#">●●チャットルーム</a>
@@ -85,7 +85,7 @@ var openpne = '.json_encode($jsonData).';
 
   </div>
 
-  <div id="chat-view" class="resize-150" style="overflow: scroll;">
+  <div id="chat-view" class="resizeheight-150" style="overflow: scroll;">
   </div>
 
   <div id="chat-input" class="row" style="position: absolute;margin: 0px;top: auto;bottom: 0px;left: 0px;right: 0px;width: auto;z-index: 1;height: 80px;display: block;visibility: visible;">
@@ -98,14 +98,14 @@ var openpne = '.json_encode($jsonData).';
     </div>
   </div>  
 </div>
-<div id="container_right" class="resize" style="position: absolute;margin: 0px;left: auto;right: 0px;top: 40px;bottom: 0px;z-index: 1;width: 240px;display: block;visibility: visible;overflow: hidden;">
+<div id="container_right" class="resizeheight" style="position: absolute;margin: 0px;left: auto;right: 0px;top: 40px;bottom: 0px;z-index: 1;width: 240px;display: block;visibility: visible;overflow: hidden; background: #f5f5f5;">
   <div class="navbar">
     <div class="navbar-inner">
       <p class="navbar-text">メモ＆タスク</p>
     </div>
   </div>
 
-      <textarea readonly id="info-textarea" style="width: 100%;">
+      <textarea readonly id="info-textarea">
       </textarea>
        <div class="btn-group" style="position: relative;">
         <button id="info-mode-button" class="btn btn-mini">編集モードへ</button>
@@ -151,22 +151,27 @@ function getWindowClientSize(){
   }
   return result;
 }
+function doResize(){
+  windowSize = getWindowClientSize();
+  $(".resizeheight").css("height",(windowSize.height - 65) + "px");
+  $(".resizeheight-150").css("height",(windowSize.height - 215) + "px");
+
+  $(".resizewidth-481").css("width",(windowSize.width - 481) + "px");
+
+}
 //-->
 </SCRIPT>
     <script>
     $(window).resize(function(){
-      windowSize = getWindowClientSize();
-        $(".resize").css("height",(windowSize.height - 65) + "px");
-       $(".resize-150").css("height",(windowSize.height - 215) + "px");
-
+      doResize();
     });
 
     $(document).ready(function(){
-      windowSize = getWindowClientSize();
-        $(".resize").css("height",(windowSize.height - 65) + "px");
-        $(".resize-150").css("height",(windowSize.height - 215) + "px");
-
+      doResize();
     });
+
+
+
     </script>
 
 </body>
