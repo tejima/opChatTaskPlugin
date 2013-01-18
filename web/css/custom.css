@@ -28,28 +28,6 @@ body {
   margin-bottom: 0px;
 }
 
-#chat-input {
-  height: 100px;
-  position: absolute;
-  bottom: 10px;
-}
-#chat-view {
-  min-height: 100px;
-  overflow: auto;
-}
-#task-view {
-  min-height: 100px;
-  overflow: auto;
-}
-
-#footer {
-  height: 20px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  background: #112233;
-}
-
 #accordion2 {
   /*min-height: 1000px;*/
   overflow: auto;

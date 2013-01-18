@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap, from Twitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le styles -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+<!--        <div class="container"> -->
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Project name</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav pull-right">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+       <!--  </div> -->
+      </div>
+    </div>
+
+      <div id="container_left" class="resize" style="position: absolute;margin: 0px;left: 0px;right: auto;top: 40px;bottom: 30px;z-index: 1;width: 239px;display: block;visibility: visible;overflow: hidden;height: 519px;background: #dddddd;">LLLLLLLLLL</div>
+      <div id="container_center" class="resize" style="position: absolute;margin: 0px;left: 240px;right: 0px;top: 40px;bottom: 30px;height: 519px;width: 922px;z-index: 1;display: block;visibility: visible;overflow: hidden;background: #aaaaaa;">
+        CCCCCCCCC
+
+        <div id="chat" style="position: absolute;margin: 0px;top: auto;bottom: 0px;left: 0px;right: 0px;width: auto;z-index: 1;height: 100px;display: block;visibility: visible;background: #EEEEEE;">
+          CHATCHAT
+
+        </div>
+
+      </div>
+      <div id="container_right" class="resize" style="position: absolute;margin: 0px;left: auto;right: 0px;top: 40px;bottom: 0px;height: 519px;z-index: 1;width: 240px;display: block;visibility: visible;overflow: hidden;background: #666666;">RRRR</div>
+
+
+    <div style="position: absolute; bottom: 0px; height: 24px; background: #333333; width: auto; left: 0px; right: 0px;">
+    		BBBBBBBBBB
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../js/jquery.js"></script>
+    <SCRIPT type="text/javascript">
+<!--
+
+function getWindowClientSize(){
+  var result={"width":0,"height":0};
+  if(window.self&&self.innerWidth){
+    result.width=self.innerWidth;
+    result.height=self.innerHeight;
+  }else if(document.documentElement && document.documentElement.clientHeight){
+    result.width=document.documentElement.clientWidth;
+    result.height=document.documentElement.clientHeight;
+  }else{
+    result.width=document.body.clientWidth;
+    result.height=document.body.clientHeight;
+  }
+  return result;
+}
+//-->
+</SCRIPT>
+    <script>
+		$(window).resize(function(){
+			windowSize = getWindowClientSize();
+		    $(".resize").css("height",(windowSize.height - 65) + "px");
+		});
+
+    $(document).ready(function(){
+      windowSize = getWindowClientSize();
+        $(".resize").css("height",(windowSize.height - 65) + "px");
+
+
+    });
+    </script>
+  </body>
+</html>

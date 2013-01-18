@@ -1,0 +1,9 @@
+.ui_layout {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    min-width: 700px;
+    min-height: 480px;
+}
