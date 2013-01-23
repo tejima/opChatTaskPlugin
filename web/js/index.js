@@ -3,7 +3,7 @@ var memberlist_loaded = false;
 var chatview_loaded = false;
 
 
-var timeline_line = '<div class="row"><div class="span1"><div style="float: left;"><img width="36" height="36" src="${member.profile_image}"></div></div><div class="span5"><a href="#" class="screenmae">${member.name}</a>${body}</div></div>';
+var timeline_line = '<div class="row"><div class="span1"><div style="float: left;"><img width="36" height="36" src="${member.profile_image}"></div></div><div class="span5"><a href="#" class="screenmae">${member.name}</a>${body}</div><ul class="nav nav-pills pull-right"><li class="disabled"><a href="#">${created_at}</a></li></ul></div>';
 $.template("timelineTMPL", timeline_line);
 
 var task_line = '<div class="block-task"><div class="row"><div class="span1"><img width="24" height="24" src="${member.profile_image}"></div></div>';
@@ -133,9 +133,8 @@ $(function(){
 
     $.get('/api.php/communityconfig/search.json',{apiKey: openpne.apiKey,community_id: active_community_id,key: 'memo'}, function(json){
       
-      
-      
       $("#info-textarea").text(json.data['value']);
+      
     },"json");
 
     var sleep = 0;
