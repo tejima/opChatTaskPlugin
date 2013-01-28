@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <link href="opChatTaskPlugin/css/bootstrap.css" rel="stylesheet">
-  <link href="opChatTaskPlugin/css/docs.css" rel="stylesheet">
   <link href="opChatTaskPlugin/css/custom.css" rel="stylesheet">
 
   <title></title>
@@ -34,12 +33,13 @@ var openpne = '.json_encode($jsonData).';
 <body>
 <div class="navbar navbar-inverse navbar-static-top">
   <div class="navbar-inner">
+      <a class="brand" href="#">OpenPNE</a>
+
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">Project name</a>
       <div class="nav-collapse collapse">
         <ul class="nav pull-right">
           <li class="active"><a href="#">Home</a></li>
@@ -65,7 +65,7 @@ var openpne = '.json_encode($jsonData).';
 <div id="container_center" class="resizeheight resizewidth-481" style="position: absolute;margin: 0px;left: 240px;right: 0px;top: 40px;bottom: 30px;z-index: 1;display: block;visibility: visible;overflow: hidden;">
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">●●チャットルーム</a>
+      <a class="brand" href="#" id="room_name"></a>
 
     <ul class="nav pull-right">
                 <li class="divider-vertical"></li>
