@@ -61,26 +61,22 @@ $(function(){
 
   $("#info-mode-button").toggle(
     function(){
-      $("#info-mode-button").text("閲覧モードへ");
-      $("#info-textarea").removeAttr("readonly").focus();
-      $("#info-save-button").removeAttr("disabled").removeClass("disabled");
+      memoEditMode(false);
     },
     function(){
-      $("#info-mode-button").text("編集モードへ");
-      $("#info-textarea").attr("readonly","readonly");
-      $("#info-save-button").attr("disabled","disabled").addClass("disabled");
+      memoEditMode(true);
     }
   );
 
   $("#info-save-button").click(function(){
     var msg = $("#info-textarea").val();
-    $.get('/api.php/communityconfig/update.json',{apiKey: openpne.apiKey , key: 'memo', value: msg , community_id: active_community.id} ,function(json){
-      $("#info-textarea").text(json.data['value']);
+    $.get('/api.php/communityconfig/update.json',{apiKey: openpne.apiKey , key: 'public_memo', value: msg , community_id: active_community.id} ,function(json){
+      $("#info-textarea").val(msg);
       $("#done").show();
       $("#done").animate({opacity: 0.99}, 2000 );
       $("#done").fadeOut(1000);
       $("#info-mode-button").text("編集モードへ");
-      $("#info-textarea").attr("readonly","readonly");
+      $("#info-textarea").attr("readonly",true);
       $("#info-save-button").attr("disabled","disabled").addClass("disabled");
     },"json");
   });
@@ -92,10 +88,8 @@ $(function(){
           block.fadeOut();
           msg = "タスク完了";
           $.get('/api.php/activity/post.json',{apiKey: openpne.apiKey,target: "community",target_id: active_community.id, body: msg},function(json){
-            
             $.tmpl("timelineTMPL",json.data).appendTo("#chat-view");
             $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
-
           },"json");
         } else {
           alert("削除できなかった");
@@ -108,6 +102,7 @@ $(function(){
   $(".accordion-toggle").live("click",function(){
     var targetId = $(this).attr('target-id');
     active_community = community_list[targetId];
+    memoEditMode(false);
     updateChatRoom();
 
     var sleep = 0;
@@ -128,6 +123,17 @@ $(function(){
   }, 5000);
 
 });
+function memoEditMode(isEdit){
+  if(isEdit){
+    $("#info-mode-button").text("閲覧モードへ");
+    $("#info-textarea").removeAttr("readonly").focus();
+    $("#info-save-button").removeAttr("disabled").removeClass("disabled");
+  }else{
+    $("#info-mode-button").text("編集モードへ");
+    $("#info-textarea").attr("readonly","readonly");
+    $("#info-save-button").attr("disabled","disabled").addClass("disabled");
+  }
+}
 
 function loadCommunityList(isAsync){
   if (isAsync === undefined){
@@ -151,10 +157,11 @@ function loadCommunityList(isAsync){
 }
 function updateChatRoom(){
   //update memo
-  $.get('/api.php/communityconfig/search.json', {apiKey: openpne.apiKey,community_id: active_community.id,key: 'memo'}, function(json) {
-  $("#info-textarea").text(json.data['value']);
-  },"json");
-
+  if($("#info-textarea").attr("readonly")){
+    $.get('/api.php/communityconfig/search.json', {apiKey: openpne.apiKey,community_id: active_community.id,key: 'public_memo'}, function(json) {
+      $("#info-textarea").val(json.data['value']);
+    },"json");
+  }
   //update room name
   $("#room_name").text(active_community["name"]);
 
@@ -163,6 +170,7 @@ function updateChatRoom(){
   $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
   $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
   },"json");
+
 
 }
 

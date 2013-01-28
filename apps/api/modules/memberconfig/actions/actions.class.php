@@ -24,7 +24,7 @@ class memberconfigActions extends sfActions
       return $this->renderText(json_encode($ar));
     }else{
 
-      $q = new CommunityConfig();
+      $q = new MemberConfig();
       $q->setName('memo');
       $q->setValue('');
       $q->setCommunityId($request['community_id']);   
@@ -39,7 +39,7 @@ class memberconfigActions extends sfActions
   {
 
     $res =     Doctrine_Query::create()
-    ->update('CommunityConfig cc')
+    ->update('MemberConfig cc')
     ->set('cc.value', '?' ,$request['value'])
     ->where('cc.community_id = ?', $request['community_id'])
     ->andWhere('cc.name= ?', $request['key'])
