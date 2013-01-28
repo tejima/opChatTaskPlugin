@@ -100,6 +100,7 @@ $(function(){
   });
 
   $(".accordion-toggle").live("click",function(){
+    updateChatRoomOrder();
     var targetId = $(this).attr('target-id');
     active_community = community_list[targetId];
     memoEditMode(false);
@@ -170,7 +171,19 @@ function updateChatRoom(){
   $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
   $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
   },"json");
+}
 
+function updateChatRoomOrder(){
+  $.get('/api.php/memberconfig/update.json', {apiKey: openpne.apiKey,key: 'public_chat_room_order',value:'1,3,5,7,9'}, function(json) {
+    console.log("memberconfig/update.json");
+    console.log(json);
+  },"json");
+
+  $.get('/api.php/memberconfig/search.json', {apiKey: openpne.apiKey,key: 'public_chat_room_order'}, function(json) {
+    console.log("memberconfig/search.json");
+    console.log(json);
+  },"json");
+  
 
 }
 
