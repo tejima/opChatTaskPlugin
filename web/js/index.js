@@ -120,7 +120,7 @@ $(function(){
 
   setInterval(function() {
     updateChatRoom();
-  }, 5000);
+  }, 10000);
 
 });
 function memoEditMode(isEdit){
