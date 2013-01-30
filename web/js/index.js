@@ -4,7 +4,7 @@
 var active_community = null;
 var memberlist_loaded = false;
 var chatview_loaded = false;
-var community_list = [];
+var community_list = {};
 
 
 var timeline_line = '<div class="row"><div class="span1"><div style="float: left;"><img width="36" height="36" src="${member.profile_image}"></div></div><div class="span5"><a href="#" class="screenmae">${member.name}</a>${body}</div><ul class="nav nav-pills pull-right"><li class="disabled"><a href="#">${created_at}</a></li></ul></div>';
@@ -100,7 +100,6 @@ $(function(){
   });
 
   $(".accordion-toggle").live("click",function(){
-    updateChatRoomOrder();
     var targetId = $(this).attr('target-id');
     active_community = community_list[targetId];
     memoEditMode(false);
@@ -147,6 +146,8 @@ function loadCommunityList(isAsync){
     data: {apiKey: openpne.apiKey},
     async: isAsync,
     success: function(json) {
+      console.log(json.data);
+      json.data = sortChatRoomOrder(json.data);
       $.tmpl("chatlistTMPL",json.data).appendTo("#accordion2");
       result = json.data[0];
       for(var i=0;i < json.data.length;i++){
@@ -173,19 +174,50 @@ function updateChatRoom(){
   },"json");
 }
 
-function updateChatRoomOrder(){
-  $.get('/api.php/memberconfig/update.json', {apiKey: openpne.apiKey,key: 'public_chat_room_order',value:'1,3,5,7,9'}, function(json) {
-    console.log("memberconfig/update.json");
-    console.log(json);
-  },"json");
+function sortChatRoomOrder(data){
+  var newlist = [];
+  $.ajax({
+    type: "GET",
+    url: "/api.php/snsconfig/search.json",
+    data:  {apiKey: openpne.apiKey,key: 'public_chat_room_order'},
+    async: false,
+    dataType: "json",
+    success: function(json){
+      console.log("snsconfig/search.json");
+      console.log(json);
+      var order_list = json.data.value;
 
-  $.get('/api.php/memberconfig/search.json', {apiKey: openpne.apiKey,key: 'public_chat_room_order'}, function(json) {
-    console.log("memberconfig/search.json");
-    console.log(json);
-  },"json");
-  
+      console.log("order_list");
+      console.log(order_list);
 
+      console.log(data);
+
+      for(var i=0;i<data.length;i++){
+        //FIXME
+        /*
+        for(var j = 2; j>=0 ; j--){
+          if(data[i].id == order_list[j]){
+            newlist.unshift(data[i]);
+          }
+        }
+        */
+        if(data[i].name == "全員集合"){
+          newlist.unshift(data[i]);
+        }else{
+          newlist.push(data[i]);
+        }
+        //newlist.push("aaa");
+      }
+      console.log("newlist");
+      console.log(newlist);
+      //return newlist;
+      //return data;
+    }
+  });
+  return newlist;
 }
+
+
 
 
 

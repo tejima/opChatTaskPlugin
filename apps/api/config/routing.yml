@@ -14,4 +14,12 @@ memberconfig_update:
   url: /memberconfig/update.json
   param: { module: memberconfig, action: update, sf_format: json }
   requirements: { sf_method: [get] }
+snsconfig_search:
+  url: /snsconfig/search.json
+  param: { module: snsconfig, action: search, sf_format: json }
+  requirements: { sf_method: [get] }
+snsconfig_update:
+  url: /snsconfig/update.json
+  param: { module: snsconfig, action: update, sf_format: json }
+  requirements: { sf_method: [get] }
 
