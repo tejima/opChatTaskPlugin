@@ -169,6 +169,8 @@ function updateChatRoom(){
 
   //update timeline
   $.get('/api.php/activity/search.json', {apiKey: openpne.apiKey,target: "community", target_id: active_community.id}, function(json) {
+
+  $("#chat-view").html("");
   $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
   $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
   },"json");
