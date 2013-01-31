@@ -55,7 +55,7 @@ var openpne = '.json_encode($jsonData).';
   <div class="navbar">
     <div class="navbar-inner">
       <form class="navbar-form pull-left">
-        <input type="text" placeholder="チャット名を検索" style="width: 150px;">
+        <input type="text" placeholder="チャット名を検索" style="width: 150px; display: none;">
       </form>
     </div>
   </div>
