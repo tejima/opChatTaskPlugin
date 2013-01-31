@@ -109,7 +109,7 @@ var openpne = '.json_encode($jsonData).';
       </textarea>
        <div class="btn-group" style="position: relative;">
         <button id="info-mode-button" class="btn btn-mini">編集モードへ</button>
-        <button id="info-save-button" class="btn btn-mini btn-primary disabled" disabled> __SAVE__ </button>
+        <button id="info-save-button" class="btn btn-mini btn-primary disabled" disabled> SAVE </button>
       </div>
       <div id="done" class="alert alert-success" style="display: none;">
         保存しました！

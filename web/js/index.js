@@ -29,11 +29,6 @@ if(community.id >= 1){
   alert("ネットが不安定です。ブラウザをリロードしてください。" + community.id);
 }
 
-//$.get('/api.php/community/search.json',{apiKey: openpne.apiKey},function(json){
-//
-//active_community_id = json.data[0].id;
- // $.tmpl("chatlistTMPL",json.data).appendTo("#accordion2");
-//},"json");
 
 updateChatRoom();
 
