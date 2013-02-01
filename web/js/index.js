@@ -167,7 +167,7 @@ function updateChatRoom(){
 
   $("#chat-view").html("");
   $.tmpl("timelineTMPL",json.data.reverse()).appendTo("#chat-view");
-  $('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
+  //$('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
   },"json");
 }
 
