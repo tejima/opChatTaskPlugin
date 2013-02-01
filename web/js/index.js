@@ -31,6 +31,7 @@ if(community.id >= 1){
 
 
 updateChatRoom();
+$('#chat-view').scrollTop($('#chat-view')[0].scrollHeight - $('#chat-view').height());
 
 $(function(){
   $("#chat-message").focusin(function(){
