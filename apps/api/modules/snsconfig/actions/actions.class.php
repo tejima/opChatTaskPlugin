@@ -16,16 +16,23 @@ class snsconfigActions extends opJsonApiActions
   */
   public function executeSearch(sfWebRequest $request)
   {
-    if(!preg_match("/^public_/" ,$request['key'])){
+    if(!preg_match("/^public_/" ,$request['key']))
+    {
       $ar = array("status" => "error" , "message" => "Parameter must start with public_");
       return $this->renderText(json_encode($ar));
     }
-    $value = unserialize(Doctrine::getTable('SnsConfig')->get($request['key']));
+    if("json" == $request->getParameter("format"))
+    {
+      $value = json_decode(Doctrine::getTable('SnsConfig')->get($request['key']));
+    }else{
+      $value = unserialize(Doctrine::getTable('SnsConfig')->get($request['key']));
+    }
+    
     if($value) 
     {
-      $ar = array("status"=>"success" , "data" => array( "community_id" => $request['community_id'] , "key" => $request['key'] , "value" => $value));
+      $ar = array("status"=>"success" , "data" => array("key" => $request['key'] , "value" => $value));
     }else{
-      $ar = array("status"=>"success" , "data" => array( "community_id" => $request['community_id'] , "key" => $request['key'] , "value" => ''));
+      $ar = array("status"=>"success" , "data" => array("key" => $request['key'] , "value" => ''));
     }
     return $this->renderText(json_encode($ar));
   }
