@@ -42,8 +42,11 @@ class snsconfigActions extends opJsonApiActions
       $ar = array("status" => "error" , "message" => "Parameter must start with public_");
       return $this->renderText(json_encode($ar));
     }
-
-    Doctrine::getTable('SnsConfig')->set($request['key'], serialize($request['value']));
+    if("json" == $request->getParameter("format")){
+      Doctrine::getTable('SnsConfig')->set($request['key'], json_encode($request['value']));
+    }else{
+      Doctrine::getTable('SnsConfig')->set($request['key'], serialize($request['value']));
+    }
     $result = array("status"=>"success" , "data" => array( "key" => $request['key'] , "value" => json_encode($request['value'])));
     return $this->renderText(json_encode($result));
 
