@@ -160,7 +160,7 @@ $(document).ready(function(){
       if(!msg){
         return;
       }
-      $.get('/api.php/topic_comment/post.json',{apiKey: openpne.apiKey,community_id: active_community.id, body: msg},function(json){
+      $.post('/api.php/topic_comment/post.json',{apiKey: openpne.apiKey,community_id: active_community.id, body: msg},function(json){
 
         json.data.body = json.data.body.replace(/((http|https):\/\/[\w?=&.\/-;#~%-]+(?![\w\s?&.\/;#~%"=-]*>))/g, '<a href="$1">$1</a> ');
         $.tmpl("chatTMPL",json.data).appendTo(".chatview");
