@@ -36,12 +36,20 @@ var openpne = '.json_encode($jsonData).';
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a id="chatroom-name" class="navbar-brand" href="#"></a>
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand chatroom-name" href="#"></a>
             </div>
+
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav dropdown-menu-community visible-xs">
+                </ul>
+                <ul class="nav navbar-nav navbar-right hidden-xs">
                     <li>
-                        <a href="#">OpenPNE</a>
+                        <a href="<?php echo sfConfig::get('op_base_url') ?>"><?php echo $op_config['sns_name'] ?></a>
                     </li>
                 </ul>
             </div>
@@ -50,7 +58,7 @@ var openpne = '.json_encode($jsonData).';
     <!-- Begin page content -->
     <div class="container">
         <div class="row resizeheight-full">
-            <div class="col-sm-4 col-md-3 col-lg-3 bg-success col-left resizeheight-full chatroom-list">
+            <div class="col-sm-4 col-md-3 col-lg-3 bg-success col-left resizeheight-full chatroom-list hidden-xs">
                 <div class="panel-group community-list" id="accordion"></div>
             </div>
             <div class="col-sm-8 col-md-7 col-lg-7">
