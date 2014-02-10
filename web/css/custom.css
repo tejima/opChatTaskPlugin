@@ -1,3 +1,9 @@
+.chatform .chatform-textarea{
+  height: 75px;
+}
+
+html { overflow: hidden; } 
+
 .navbar{
   margin-bottom: 0;
 }
@@ -33,6 +39,8 @@
 .chatview{
   overflow-y: scroll;
   overflow-x: hidden;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .div-chatmember{
