@@ -21,7 +21,7 @@ function getWindowClientSize(){
 function doResize(){
   windowSize = getWindowClientSize();
   $(".resizeheight-full").css("height",(windowSize.height - 53) + "px");
-  $(".resizeheight-middle").css("height",(windowSize.height - 53 - 124) + "px");
+  $(".resizeheight-middle").css("height",(windowSize.height - 53 - 100) + "px");
 }
 
 function sortChatRoomOrder(data){
