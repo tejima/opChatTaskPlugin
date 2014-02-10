@@ -66,8 +66,8 @@ var openpne = '.json_encode($jsonData).';
 
                 <div class="chatform">
                     <form class="form" role="form">
-                        <textarea id="chatform-textarea" class="form-control" rows="4"></textarea>
-                        <button id="chatform-post" type="submit" class="btn btn-success btn-sm btn-block">送信（Shift＋Enterで送信）</button>
+                        <textarea class="chatform-textarea form-control" rows="1"></textarea>
+                        <input id="chatform-post" type="submit" value="送信（Shift＋Enterで送信）" class="btn btn-success btn-sm btn-block" data-loading-text="送信中.....">
                     </form>
                 </div>
             </div>
