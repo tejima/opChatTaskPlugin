@@ -16,5 +16,6 @@ class chattaskActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+  	$this->community_id = $request->getParameter('id') ?: null;
   }
 }

@@ -1,0 +1,6 @@
+chattask_communty:
+  url:     /chattask/:id
+  param:   { module: chattask, action: index }
+  requirements:
+    id:        \d+
+    sf_method: [get]
