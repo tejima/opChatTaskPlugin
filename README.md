@@ -7,7 +7,7 @@ OpenPNEのコミュニティをチャットルームにするプラグイン。
 スクリーンショット
 --
 
-<img src="http://p.pne.jp/d/201302121445.png">
+<img src="http://p.pne.jp/d/500/201402191836.png">
 
 
 TODO
